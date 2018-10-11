@@ -1,12 +1,9 @@
 [submodule "red-or-green-api"]
 	path = red-or-green-api
 	url = git@github.com:amodelbello/red-or-green-api.git
-  ignore = dirty
 [submodule "red-or-green-admin"]
 	path = red-or-green-admin
 	url = git@github.com:amodelbello/red-or-green-admin.git
-  ignore = dirty
 [submodule "red-or-green-graphql"]
 	path = red-or-green-graphql
 	url = git@github.com:amodelbello/red-or-green-graphql.git
-  ignore = dirty
