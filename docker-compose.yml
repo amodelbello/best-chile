@@ -12,6 +12,17 @@ services:
       - ./../api:/usr/src/app
     networks:
       - rg-net
+  rg-admin:
+    build: './../admin'
+    depends_on:
+      - rg-mongo
+      - rg-api
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./../admin:/usr/src/app
+    networks:
+      - rg-net
   rg-mongo:
     # TODO: Need to flesh this out a bit. Is it the right image? user/pass, etc
     image: 'bitnami/mongodb:3.6'
