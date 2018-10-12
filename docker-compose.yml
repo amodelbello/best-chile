@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  rg-api:
+    build: './../api'
+    depends_on:
+      - rg-mongo
+    command: ["./wait-for-it/wait-for-it.sh", "docker_rg-mongo_1:27017", "--", "npm", "start"]
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./../api:/usr/src/app
+    networks:
+      - rg-net
+  rg-mongo:
+    # TODO: Need to flesh this out a bit. Is it the right image? user/pass, etc
+    image: 'bitnami/mongodb:3.6'
+    ports:
+      - '27017:27017'
+    volumes:
+      - rg-mongo-data:/data/db
+      - rg-mongo-config-data:/data/configdb
+    networks:
+      - rg-net
+volumes:
+  rg-mongo-data:
+  rg-mongo-config-data:
+
+networks:
+  rg-net:
