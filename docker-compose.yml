@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   rg-api:
@@ -12,6 +12,11 @@ services:
       - ./../api:/usr/src/app
     networks:
       - rg-net
+    environment:
+      - NODE_ENV=development
+    secrets:
+      - JWT_SECRET
+      - CORS_WHITELIST
   rg-admin:
     build: './../admin'
     depends_on:
@@ -50,3 +55,9 @@ volumes:
 
 networks:
   rg-net:
+
+secrets:
+  JWT_SECRET:
+    file: ./secrets/JWT_SECRET
+  CORS_WHITELIST:
+    file: ./secrets/CORS_WHITELIST
