@@ -1,13 +1,20 @@
-version: '3.1'
+version: "3.1"
 
 services:
   rg-api:
-    build: './../api'
+    build: "./../api"
     depends_on:
       - rg-mongo
-    command: ["./wait-for-it/wait-for-it.sh", "docker_rg-mongo_1:27017", "--", "npm", "start"]
+    command:
+      [
+        "./wait-for-it/wait-for-it.sh",
+        "docker_rg-mongo_1:27017",
+        "--",
+        "npm",
+        "start",
+      ]
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - ./../api:/usr/src/app
     networks:
@@ -18,32 +25,42 @@ services:
       - JWT_SECRET
       - CORS_WHITELIST
   rg-admin:
-    build: './../admin'
+    build: "./../admin"
     depends_on:
       - rg-mongo
       - rg-api
     ports:
-      - '8080:8080'
+      - "8080:8080"
     volumes:
       - ./../admin:/usr/src/app
     networks:
       - rg-net
   rg-graphql:
-    build: './../graphql'
+    build: "./../graphql"
     depends_on:
       - rg-mongo
       - rg-api
     ports:
-      - '4000:4000'
+      - "4000:4000"
     volumes:
       - ./../graphql:/usr/src/app
     networks:
       - rg-net
+  rg-client:
+    build: "./../client"
+    depends_on:
+      - rg-graphql
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./../client:/usr/src/app
+    networks:
+      - rg-net
   rg-mongo:
     # TODO: Need to flesh this out a bit. Is it the right image? user/pass, etc
-    image: 'bitnami/mongodb:3.6'
+    image: "bitnami/mongodb:3.6"
     ports:
-      - '27017:27017'
+      - "27017:27017"
     volumes:
       - rg-mongo-data:/data/db
       - rg-mongo-config-data:/data/configdb
