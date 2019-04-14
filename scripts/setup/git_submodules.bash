@@ -7,4 +7,4 @@ git submodule init
 git submodule update
 
 echo "Installed git submodules"
-cd $HOME
+cd "$HOME"

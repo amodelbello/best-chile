@@ -9,5 +9,5 @@ git clone git@github.com:amodelbello/rg-client.git &
 
 wait
 
-cd $HOME
-echo "Checked out all the code  ."
+echo "Checked out all the code."
+cd "$HOME"

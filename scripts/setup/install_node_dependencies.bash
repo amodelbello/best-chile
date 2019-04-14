@@ -22,4 +22,4 @@ cd ..
 wait
 
 echo "Installed all npm dependencies for all apps."
-cd $HOME
+cd "$HOME"

@@ -2,3 +2,5 @@ scripts/setup/.config
 scripts/setup/.npm
 scripts/setup/.cache
 scripts/setup/package-lock.json
+scripts/setup/Library
+scripts/setup/.yarnrc
