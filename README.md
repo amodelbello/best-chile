@@ -7,6 +7,8 @@ Parent repository for Best-Chile apps. Includes docker compose file and utility 
 - install docker
 - install docker-compose
 
+## Installation
+
 Create a container directory, e.g. `app`:
 
 ```
