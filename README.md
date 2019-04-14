@@ -1,5 +1,6 @@
-# red-or-green
-Parent repository for Red or Green apps. Includes docker compose file and utility scripts.
+# best-chile
+
+Parent repository for Best-Chile apps. Includes docker compose file and utility scripts.
 
 To start:
 `docker-compose up`
