@@ -5,19 +5,19 @@ cd ../../../
 
 cd rg-admin
 npm install &
-cd -
+cd ..
 
 cd rg-api
 npm install &
-cd -
+cd ..
 
 cd rg-client
 yarn install &
-cd -
+cd ..
 
 cd rg-graphql
 npm install &
-cd -
+cd ..
 
 wait
 

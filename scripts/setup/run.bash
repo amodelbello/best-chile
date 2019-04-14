@@ -1,8 +1,7 @@
 #!/bin/bash
-sh install_node_dependencies.bash
-sh git_submodules.bash
+HOME=$(pwd)
+./git_clone.bash
+./git_submodules.bash
+./install_node_dependencies.bash
 
-cd ../api
-sh seed.bash
-
-cd -
+cd $HOME
