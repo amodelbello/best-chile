@@ -2,13 +2,13 @@ version: "3.1"
 
 services:
   rg-api:
-    build: "./../api"
+    build: "./../rg-api"
     depends_on:
       - rg-mongo
     command:
       [
         "./wait-for-it/wait-for-it.sh",
-        "docker_rg-mongo_1:27017",
+        "rg-mongo_1:27017",
         "--",
         "npm",
         "start",
@@ -16,7 +16,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./../api:/usr/src/app
+      - ./../rg-api:/usr/src/app
     networks:
       - rg-net
     environment:
@@ -25,35 +25,35 @@ services:
       - JWT_SECRET
       - CORS_WHITELIST
   rg-admin:
-    build: "./../admin"
+    build: "./../rg-admin"
     depends_on:
       - rg-mongo
       - rg-api
     ports:
       - "8080:8080"
     volumes:
-      - ./../admin:/usr/src/app
+      - ./../rg-admin:/usr/src/app
     networks:
       - rg-net
   rg-graphql:
-    build: "./../graphql"
+    build: "./../rg-graphql"
     depends_on:
       - rg-mongo
       - rg-api
     ports:
       - "4000:4000"
     volumes:
-      - ./../graphql:/usr/src/app
+      - ./../rg-graphql:/usr/src/app
     networks:
       - rg-net
   rg-client:
-    build: "./../client"
+    build: "./../rg-client"
     depends_on:
       - rg-graphql
     ports:
       - "3001:3001"
     volumes:
-      - ./../client:/usr/src/app
+      - ./../rg-client:/usr/src/app
     networks:
       - rg-net
   rg-mongo:
