@@ -50,6 +50,8 @@ services:
       - "3001:3001"
     volumes:
       - ./../rg-client:/usr/src/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     networks:
       - rg-net
   rg-mongo:
