@@ -52,6 +52,7 @@ services:
       - ./../rg-client:/usr/src/app
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - GRAPHQL_URL=http://localhost:4000/graphql
     networks:
       - rg-net
   rg-mongo:
