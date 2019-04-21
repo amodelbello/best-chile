@@ -41,7 +41,7 @@ Total install time should be around 5-10 minutes
 
 After intallation you should be able to acces the following via a browser:
 
-### http://localhost:3000/
+### http://localhost:3001/
 
 A REST API built with express, connected to a mongodb document store  
 Example endpoints:
@@ -63,7 +63,7 @@ An admin website built with vue.js
 
 ---
 
-### http://localhost:3001/
+### http://localhost:3000/
 
 A client website built with Next.js/React
 
